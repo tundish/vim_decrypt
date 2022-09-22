@@ -1,0 +1,32 @@
+# For possible options see https://peps.python.org/pep-0621/
+ 
+[project]
+name = "vim-decrypt"
+version = "2.0.0"
+description = "Command line tool for decrypting vim-blowfish-encrypted files."
+readme = "README.rst"
+requires-python = ">=3.8"
+license = {file = "LICENSE"}
+keywords = ["vim", "blowfish", "decrypt", "encryption"]
+authors = [
+    {name = "Gertjan van Zwieten"}
+]
+maintainers = [
+    {name = "Tundish", email = "tundish@gigeconomy.org.uk"}
+]
+classifiers = [
+    "Programming Language :: Python"
+]
+
+# End of project metadata
+
+[build-system]
+requires = [ "setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+dependencies = [
+    "blowfish >= 0.6.1"
+]
+
+[project.scripts]
+vim-decrypt = "vimdecrypt:run"
