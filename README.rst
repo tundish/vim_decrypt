@@ -10,7 +10,7 @@ data is a concern if a program with the dependencies and size of vim is
 required to unlock it.
 
 This project provides a very simpe ``vimdecrypt`` Python module for
-decrypting blowfish-encoded file objects, as well as the ``vimdecrypt``
+decrypting blowfish-encoded file objects, as well as the ``vim-decrypt``
 command line tool for decrypting files to stdout.
 
 encryption methods
@@ -32,27 +32,26 @@ installation
 ------------
 
 Both the Python module and the command line tool are installable via
-setuptools:
+pip:
 
 ::
 
-   $ python setup.py install (--user)
+   $ <venv>/bin/python -m pip install vim-decrypt
 
 usage
 -----
 
-With ``~/.local/bin`` in your executable path, decrypt any file to
-stdout using:
+Decrypt any file to stdout using:
 
 ::
 
-   $ vimdecrypt [path]
+   $ <venv>/bin/vim-decrypt [path]
 
 If the path argument is omitted then data is read from stdin:
 
 ::
 
-   $ cat somefile | vimdecrypt
+   $ cat somefile | <venv>/bin/vim-decrypt
 
 Note that the password is obtained via GNU getpass which does not
 interfere with stdin/stdout redirection.
@@ -62,7 +61,7 @@ The Python module defines only the ``decrypt`` method:
 ::
 
    >>> import vimdecrypt
-   >>> with open('somefile', 'rb') as f:
+   >>> with open("somefile", "rb") as f:
    >>>   text = vimdecrypt.decrypt(f)
 
 credits
