@@ -28,8 +28,16 @@ dependencies = [
 vim-decrypt = "vimdecrypt:run"
 
 [build-system]
-requires = [ "setuptools", "wheel"]
+requires = [
+    "black >= 22.8.0",
+    "setuptools",
+    "wheel"
+]
 build-backend = "setuptools.build_meta"
+
+[tool.black]
+line-length = 96
+target-version = ["py38"]
 
 [tool.setuptools]
 py-modules = [
