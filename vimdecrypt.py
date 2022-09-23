@@ -22,7 +22,6 @@ import hashlib
 import operator
 import struct
 import sys
-import unittest
 
 
 def blowfish(key):
@@ -62,20 +61,6 @@ def decrypt(f, pw=None, encoding='utf8'):
     block0 = block1
     block1 = f.read(8)
   return decrypted.decode(encoding)
-
-
-class Test(unittest.TestCase):
-  def test(self):
-    import io
-    f = io.BytesIO(b'VimCrypt~03!\xff\xcf\xe2R\x9b\xe0\xa9\x85\xa20\xf4S\x95)18A\xaa,\x11\x83\x98\xfb}i\xfa\xff\xf1\xc6|,')
-    self.assertEqual(decrypt(f, 'my password'), 'my secret text\n')
-
-
-def run():
-    if len(sys.argv) > 2:
-      sys.exit('usage: vimdecrypt [path]')
-
-    print(decrypt(sys.argv[1] if len(sys.argv) == 2 else sys.stdin.buffer))
 
 
 if __name__ == "__main__":
