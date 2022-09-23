@@ -63,5 +63,12 @@ def decrypt(f, pw=None, encoding="utf8"):
     return decrypted.decode(encoding)
 
 
+def run():
+    if len(sys.argv) > 2:
+        sys.exit("usage: vimdecrypt [path]")
+
+    print(vimdecrypt.decrypt(sys.argv[1] if len(sys.argv) == 2 else sys.stdin.buffer))
+
+
 if __name__ == "__main__":
     run()
