@@ -24,6 +24,8 @@ from vimdecrypt import decrypt
 
 
 class Test(unittest.TestCase):
-  def test_decrypt_byte_literal(self):
-    f = io.BytesIO(b'VimCrypt~03!\xff\xcf\xe2R\x9b\xe0\xa9\x85\xa20\xf4S\x95)18A\xaa,\x11\x83\x98\xfb}i\xfa\xff\xf1\xc6|,')
-    self.assertEqual(decrypt(f, 'my password'), 'my secret text\n')
+    def test_decrypt_byte_literal(self):
+        f = io.BytesIO(
+            b"VimCrypt~03!\xff\xcf\xe2R\x9b\xe0\xa9\x85\xa20\xf4S\x95)18A\xaa,\x11\x83\x98\xfb}i\xfa\xff\xf1\xc6|,"
+        )
+        self.assertEqual(decrypt(f, "my password"), "my secret text\n")
