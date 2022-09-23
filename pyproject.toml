@@ -20,13 +20,19 @@ classifiers = [
 
 # End of project metadata
 
-[build-system]
-requires = [ "setuptools", "wheel"]
-build-backend = "setuptools.build_meta"
-
 dependencies = [
     "blowfish >= 0.6.1"
 ]
 
 [project.scripts]
 vim-decrypt = "vimdecrypt:run"
+
+[build-system]
+requires = [ "setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+py-modules = [
+"vimdecrypt", "test_vimdecrypt"
+]
+
